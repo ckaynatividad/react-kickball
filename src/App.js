@@ -3,27 +3,29 @@
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
+import Player from './components/players/playerDetail';
+import Players from './views/playerList';
+import Team from './components/teams/teamDetail';
+import Teams from './views/teamList';
 
 function App() {
   return (
     <div className="App">
-      <h1>kickbball</h1>
+      <h1>kickballs sdjhfdsksdj</h1>
       <BrowserRouter>
-        <NavLink to="/">home</NavLink>
-        <NavLink to="/teams">teams</NavLink>
-        <NavLink to="/players">players</NavLink>
+        <NavLink to="/team">teams</NavLink>
+        <NavLink to="/player">players</NavLink>
         <Switch>
-          <Route path="/" exact>
+          <Route path="/">
             <h1>home</h1>
           </Route>
-          <Route path="/teams">
-            <h1>teams</h1>
-          
+          <Route path="/team/:id" component={Team} />
+          <Route path="/team">
+            <Teams />
           </Route>
-          <Route path="/players">
-            <h1>players</h1>
-          
-          </Route>
+          <Route path="/player/:id" component={Player} />
+          <Route path="/player" component={Players} />
+
         </Switch>
       </BrowserRouter>
     </div>
